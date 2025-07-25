@@ -19,12 +19,12 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
 .blue-silver-badge {
-  padding: 0.45rem 1.3rem;
-  border-radius: 23px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  margin-right: 0.5rem;
+  padding: 0.25rem 0.8rem;        
+  border-radius: 16px;          
+  font-size: 0.6rem;            
+  font-weight: 600;          
+  letter-spacing: 0.03em;
+  margin-right: 0.4rem;
   display: inline-block;
 
   background: #183963 !important;
@@ -36,6 +36,7 @@ export default {
   text-shadow: none !important;
   transition: none;
 }
+
 
 .gaming,
 .pfp,

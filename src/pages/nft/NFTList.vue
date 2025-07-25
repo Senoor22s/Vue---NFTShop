@@ -125,8 +125,8 @@ ul {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 
 .controls {
@@ -137,16 +137,13 @@ ul {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   ul {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 480px) {
-  ul {
-    grid-template-columns: 1fr;
-  }
   .controls {
     flex-direction: column;
     gap: 0.8rem;
@@ -155,5 +152,4 @@ ul {
     width: 100%;
   }
 }
-
 </style>

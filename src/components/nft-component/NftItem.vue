@@ -55,7 +55,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  max-width: 320px;
+  max-width: 420px;
   width: 100%;
   height: 460px;
   margin: 1rem auto;
@@ -82,8 +82,9 @@ export default {
 }
 
 .nft-image {
-  width: 100%;
-  height: 140px;
+  width: 90%;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
   border-radius: 12px;
@@ -91,6 +92,7 @@ export default {
   box-shadow: var(--nft-image-shadow);
   background-color: #f2f2f2;
 }
+
 
 h3 {
   font-size: 1.42rem;
@@ -115,8 +117,6 @@ h4 {
   gap: 0.3rem;
   margin: 0.4rem 0;
 }
-
-/* spacer to push button to bottom */
 .spacer {
   flex-grow: 1;
 }
@@ -128,7 +128,6 @@ h4 {
   margin-top: 1rem;
 }
 
-/* ریسپانسیو */
 @media (max-width: 768px) {
   .digital-text {
     max-width: 90%;
