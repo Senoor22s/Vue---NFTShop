@@ -93,8 +93,22 @@ export default {
       return !this.isLoading && this.$store.getters['nft/hasNFT'];
     },
   },
-  created() {
+  mounted() {
+    const pos = sessionStorage.getItem('scrollPosition-nft-list');
+    if (pos) {
+      const { left, top } = JSON.parse(pos);
+      window.scrollTo(left, top);
+    }
     this.loadNFT();
+  },
+  beforeRouteLeave(to, from, next) {
+    if (from.path === '/nft-list') {
+      sessionStorage.setItem('scrollPosition-nft-list', JSON.stringify({
+        left: window.pageXOffset,
+        top: window.pageYOffset,
+      }));
+    }
+    next();
   },
   methods: {
     setFilters(updatedFilters) {
