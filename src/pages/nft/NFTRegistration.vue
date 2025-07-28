@@ -2,8 +2,12 @@
   <section class="nft-register-container">
     <base-card class="nft-register-card">
       <h2>Register NFT Now!</h2>
-      <nft-form @save="saveData"></nft-form>
+      <nft-form @save="saveData" />
     </base-card>
+    <base-dialog :show="isSubmitting" title="Registering NFT..." :fixed="true">
+      <base-spinner />
+      <h2>Please wait while we register your NFT...</h2>
+    </base-dialog>
   </section>
 </template>
 
@@ -14,10 +18,22 @@ export default {
   components: {
     NftForm,
   },
+  data() {
+    return {
+      isSubmitting: false,
+    };
+  },
   methods: {
-    saveData(data) {
-      this.$store.dispatch('nft/registerNFT', data);
-      this.$router.replace('/nft-list');
+    async saveData(data) {
+      this.isSubmitting = true;
+      try {
+        await this.$store.dispatch('nft/registerNFT', data);
+        await this.$store.dispatch('nft/setNFT', { forceRefresh: true });
+        this.$router.replace('/nft-list');
+      } catch (err) {
+        console.error('Error saving NFT:', err);
+        this.isSubmitting = false;
+      }
     },
   },
 };

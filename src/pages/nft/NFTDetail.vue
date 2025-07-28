@@ -69,23 +69,26 @@ export default {
       return `/image/${img}`;
     },
   },
-  beforeRouteEnter(to, from, next) {
-    store.dispatch('nft/setNFT').then(() => {
-      const nft = store.getters['nft/nft'].find(nft => nft.id === to.params.id);
-
-      if (nft) {
-        next(vm => {
-          vm.isLoading = true;
-          vm.selectedNFT = nft;
-          window.scrollTo(0, 0);
-          setTimeout(() => {
-            vm.isLoading = false;
-          }, 200);
-        });
-      } else {
-        next('/not-found');
+  mounted() {
+    this.loadNFT();
+  },
+  methods: {
+    async loadNFT(refresh = false) {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch('nft/setNFT', { forceRefresh: refresh });
+        const nft = this.$store.getters['nft/nft'].find(n => n.id === this.id);
+        if (nft) {
+          this.selectedNFT = nft;
+        } else {
+          this.$router.replace('/not-found');
+        }
+      } catch (err) {
+        this.$router.replace('/not-found');
+      } finally {
+        this.isLoading = false;
       }
-    });
+    },
   },
 };
 </script>
