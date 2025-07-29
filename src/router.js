@@ -26,6 +26,9 @@ const router = createRouter({
     { path: '/:catchAll(.*)', component: NotFound },
     { path:'/not-found' , component:NotFound}
   ],
+  scrollBehavior(to, from, savedPosition) {
+    return false;
+  }
 });
 router.beforeEach((to, _, next) => {
   if (to.meta.requiresAuth && !store.getters['auth/isAuthenticated']) {

@@ -12,9 +12,6 @@
           <base-button @click="loadNFT(true)">Refresh</base-button>
           <base-button link to="/auth" v-if="!isLoggedIn">Login to Register NFT</base-button>
           <base-button v-if="isLoggedIn && !isLoading" link to="/register">Register NFT</base-button>
-          <div v-if="isLoggedIn">
-            <base-button @click="logout">Logout</base-button>
-          </div>
         </div>
         <div v-if="isLoading">
           <base-spinner></base-spinner>
@@ -132,7 +129,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 ul {
   list-style: none;
@@ -162,8 +158,15 @@ ul {
     flex-direction: column;
     gap: 0.8rem;
   }
-  .controls base-button {
+
+  .controls base-button,
+  .controls a,
+  .controls > div > base-button {
     width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

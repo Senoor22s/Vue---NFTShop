@@ -181,14 +181,8 @@ label {
   transition: background 0.2s;
   font-family: inherit;
   display: block;
-  width: 100%;
-  max-width: 280px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.apply-btn:hover {
-  background: var(--primary-btn-hover, #4248a7);
 }
 
 @media (max-width: 480px) {
@@ -198,6 +192,14 @@ label {
 
   .filter-option {
     margin-right: 0;
+  }
+
+  .apply-btn {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
