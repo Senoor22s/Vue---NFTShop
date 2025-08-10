@@ -1,4 +1,4 @@
-# Vue 3 + Vite
+# Vue 2 + Vite
 
 [npm install --save vuex]
 [npm install vite]
